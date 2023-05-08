@@ -1,0 +1,10 @@
+{
+  "name": "openai-assistant",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "superagent": "^8.0.9",
+    "superagent-proxy": "^3.0.0"
+  }
+}
