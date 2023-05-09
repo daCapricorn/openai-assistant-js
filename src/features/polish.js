@@ -4,11 +4,20 @@ function handleResult(result) {
       return "";
     }
 
-    const regex = /^The answer is (.*)$/gm;
+    const regex = /^The answer is(.*)$/gm;
     const parsed = regex.exec(result.trim());
 
-    return parsed[1].replace(/^"(.*)".?$/, '$1');
+    result = parsed[1].trim();
+    if(result.indexOf(":") == 0) {
+      result = result.substr(1).trim();
+    }
 
+    const leftQuote = result.indexOf('"');
+    const rightQuote = result.lastIndexOf('"');
+
+    if (leftQuote !== -1 && rightQuote !== -1) {
+      return result.substring(leftQuote + 1, rightQuote);
+    }
   } catch (error) {
     return result;
   }
